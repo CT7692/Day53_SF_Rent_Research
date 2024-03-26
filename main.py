@@ -1,9 +1,8 @@
-import apartment_seeker
 from apartment_seeker import ApartmentData
-
+from tkinter import messagebox
 
 try:
     apt_data = ApartmentData()
     apt_data.enter_data()
 except Exception as ex:
-    print(ex)
+    messagebox.showwarning(message=ex)

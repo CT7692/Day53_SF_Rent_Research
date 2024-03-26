@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions
 from tkinter import messagebox
 from bs4 import BeautifulSoup
 from security import safe_requests
+from time import sleep
 
 import os
 
@@ -46,10 +47,10 @@ class ApartmentData:
         prices = self.get_price_listings()
         links = self.get_listing_links()
         num_apartments = len(address_list)
+        self.open_form()
 
         for i in range(num_apartments):
-            self.open_form()
-            self.driver.implicitly_wait(5)
+            sleep(1)
             inputs = self.driver.find_elements(By.CSS_SELECTOR, value=".RdH0ib .zHQkBf, .RdH0ib .tL9Q4c")
             address_input = inputs[0]
             price_input = inputs[1]
@@ -66,7 +67,9 @@ class ApartmentData:
             submit.click()
             self.driver.implicitly_wait(4)
             next = self.driver.find_element(By.LINK_TEXT, value="Submit another response")
+            next.click()
             self.driver.implicitly_wait(4)
 
+        messagebox.showinfo(title="Finished", message="Data gathering process complete.")
         self.driver.quit()
 
