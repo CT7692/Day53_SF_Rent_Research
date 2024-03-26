@@ -1,4 +1,3 @@
-import apartment_seeker
 from apartment_seeker import ApartmentData
 
 
