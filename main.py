@@ -6,3 +6,4 @@ try:
     apt_data.enter_data()
 except Exception as ex:
     messagebox.showwarning(message=ex)
+    apt_data.driver.quit()
