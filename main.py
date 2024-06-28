@@ -1,5 +1,4 @@
 from apartment_seeker import ApartmentData
-from tkinter import messagebox
 
 try:
     apt_data = ApartmentData()
